@@ -1,0 +1,470 @@
+/* Style untuk kategori dan sub kategori aktif */
+.category.active,
+.sectionproduct.active {
+  background-color: var(--light-navy);
+  color: var(--white);
+  transition: background-color 0.5s, color 0.5s; /* Perpanjang waktu transisi */
+}
+
+/* Hover pada kategori dan sub kategori aktif */
+.category.active:hover,
+.sectionproduct.active:hover {
+  background-color: var(--navy);
+  color: var(--white);
+}
+
+/* Efek hover pada kategori dan sub kategori */
+.category:hover,
+.sectionproduct:hover {
+  background-color: var(--softer-blue);
+  color: var(--white); /* Putih saat di-hover */
+}
+
+/* Transisi untuk perpindahan kategori yang tidak aktif */
+.category:not(.active):hover,
+.sectionproduct:not(.active):hover {
+  box-shadow: 0 0 10px var(--light-navy);
+  color: var(--white); /* Putih saat di-hover */
+}
+
+/* Memastikan semua teks dalam kategori dan sub kategori juga berubah warna */
+.category h2,
+.sectionproduct h3 {
+  color: var(--navy);
+}
+
+.category.active h2,
+.category.active:hover h2,
+.sectionproduct.active h3,
+.sectionproduct.active:hover h3 {
+  color: var(--white) !important;
+}
+
+
+/* Global styles */
+#products-sectionproduct {
+  width: 80%;
+  max-width: 1200px;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#main-title {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+#selected-category {
+  display: none;
+}
+
+#search-containerproduct {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#search-input {
+  background-color: var(--white);
+  width: 80%;
+  padding: 10px;
+  font-size: 1em;
+  margin-right: 10px;
+  box-shadow: 0 0 10px rgba(0, 26, 57, 0.28);
+}
+
+
+#search-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  background-color: var(--light-navy);
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 26, 57, 0.28);
+
+}
+
+#search-button:hover {
+  background-color: rgb(239, 196, 26);
+}
+
+.section-product {
+  margin-top: 50px;
+  background-color: var(--soft-blue);
+  padding-top: 140px;
+  padding-bottom: 100px;
+}
+
+
+
+.containerproduct {
+  display: flex;
+  width: 100%;
+  
+}
+
+#category-list {
+  background-color: inherit;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0px;
+  width: 20%;
+  max-width: 130px;
+}
+
+.category {
+  border-bottom: 1px solid rgba(0, 26, 57, 0.3); /* Navy dengan opacity 30% */
+  padding: 10px 0;
+  cursor: pointer;
+  font-size: 0.65em;
+  text-align: left;
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 0px;
+  padding-left: 4px;
+  box-shadow: 0 0 10px rgba(0, 26, 57, 0.28);
+
+  padding-right: 4px;
+  background-color: var(--white);
+  transition: background-color 0.5s, color 0.5s; /* Perpanjang waktu transisi */
+}
+
+.category h2 {
+  color: var(--navy);
+  line-height: normal;
+  margin: 0;
+  font-size: 1em;
+}
+
+#sectionproduct-content {
+  background-color: var(--soft-blue);
+  box-shadow: 0 0 10px rgba(0, 26, 57, 0.28);
+  padding: 20px;
+  flex: 1;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 468px;
+  width: 80%;
+}
+
+.sectionproduct-list {
+  display: flex;
+  background-color: var(--soft-blue);
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-bottom: 10px;
+  max-height: calc(100vh - 290px);
+  overflow-y: auto;
+  padding-left: 10px;
+  
+  
+}
+/* Default: Hide dropdown */
+.sectionproduct-list select {
+  display: none;
+}
+
+/* Tampilkan dropdown hanya pada lebar layar 0-1000px */
+@media (max-width: 1000px) {
+  .sectionproduct-list select {
+    display: block;
+  }
+}
+
+
+.sectionproduct {
+  background-color: var(--white);
+  cursor: pointer;
+  padding: 10px;
+  text-align: center;
+  margin-right: 10px;
+  flex: 5px auto;
+  /* margin: 4px 5px; Menambah margin 2px di atas dan bawah */
+  transition: background-color 0.5s, box-shadow 0.5s, border-color 0.5s; /* Perpanjang waktu transisi */
+}
+
+.sectionproduct h3 {
+  font-size: 1em;
+  margin: 0;
+  color: var(--navy);
+}
+
+
+
+.product-list {
+  color: white;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  gap: 10px;
+  overflow-y: auto;
+  flex: 1;
+  max-height: 100vh;
+
+}
+
+.product {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  box-shadow: inset 0 0 1px rgba(138, 230, 251, 0.327),
+    0 0 10px rgba(0, 26, 57, 0.328);
+  padding: 3px;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.product img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 280px;
+}
+
+.product-name {
+  margin-top: 10px;
+  font-size: 0.8em;
+  padding: 5px;
+  background-color: var(--navy);
+  display: inline-block;
+  width: calc(100% - 10px);
+  text-align: center;
+  line-height: normal;
+color: #fff !important;
+}
+
+/* Responsive styles */
+@media (min-width: 365px) {
+  .category {
+
+    font-size: 0.8em;
+  }
+}
+@media (min-width: 575px) {
+    .product {
+        width: calc(50% - 10px);
+
+        color: white;
+
+    }
+
+    .product-name {
+      margin-top: 10px;
+      font-size: 1em;
+      padding: 5px;
+      background-color: var(--navy);
+      display: inline-block;
+      width: calc(100% - 10px);
+      text-align: center;
+      line-height: normal;
+      color: var(--white);
+    }
+    .category {
+      border-bottom: 1px solid rgba(0, 26, 57, 0.3); /* Navy dengan opacity 30% */
+      padding: 10px 0;
+      cursor: pointer;
+      font-size: 0.9em;
+      text-align: left;
+      width: 100%;
+      height: fit-content;
+      margin-bottom: 0px;
+      padding-left: 7px;
+      box-shadow: 0 0 10px rgba(0, 26, 57, 0.28);
+    
+      padding-right: 7px;
+      background-color: var(--white);
+      transition: background-color 0.5s, color 0.5s; /* Perpanjang waktu transisi */
+    }
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 1024px) {
+    .product {
+        width: calc(33.3333% - 13.3333px);
+    }
+}
+
+/* LOGO */
+
+.banner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  padding: 10px 20px;
+  overflow: hidden;
+  height: 150px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 95%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+
+.services-section, .section-product {
+  position: relative;
+  padding: 50px 0px;
+  text-align: center;
+}
+
+
+.services-section {
+  background-color: #000000; /* Warna latar belakang untuk demonstrasi */
+}
+
+.section-product {
+  background-color: var(--soft-blue); /* Sesuaikan dengan warna latar belakang produk Anda */
+}
+
+.banner-container {
+  position: relative;
+  z-index: 1;
+}
+
+.carousel-track img:first-child {
+  margin-left: 3px;
+}
+
+
+.carousel {
+  flex: 0 0 60%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  position: relative;
+  white-space: nowrap; /* Prevent wrapping of images */
+}
+
+.carousel-track {
+  display: flex;
+  animation: scroll 25s linear infinite; /* Increase duration for smoother effect */
+  align-items: center;
+}
+
+.carousel-track img {
+  width: 100px;
+  height: auto;
+  margin-right: 20px;
+  transition: transform 0.3s;
+}
+
+.carousel-track img:hover {
+  transform: scale(1.1);
+}
+
+
+/* CSS for overlapping effect */
+.services-section::after, .section-product::before {
+  content: "";
+  display: block;
+  height: 50px;
+  width: 100%;
+  position: absolute;
+  top: -25px;
+  left: 0;
+  z-index: -1;
+  background: var(--soft-blue);
+}
+
+.services-section::after {
+  top: auto;
+  bottom: -55px;
+}
+
+color: #000;
+font-weight: bold;
+text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.8);
+
+
+
+.text-container {
+  justify-content: center; /* Rata tengah horizontal */
+  align-items: center; /* Rata tengah vertikal */
+ 
+  flex: 1;
+}
+
+.carousel-br {
+  display: none;
+}
+
+
+
+@keyframes scroll {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(calc(-100px * 10));
+  }
+}
+
+@media (min-width: 575px) {
+  .banner{
+    height: 100px;
+  }
+
+.headline-4 {
+  color: var(--navy);
+  font-family: "BionBold", sans-serif;
+  font-weight: bolder;
+  letter-spacing: normal;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-size: 1em;
+  text-align: right;
+}
+
+
+  }
+@media (min-width: 1200px) {
+  .carousel {
+    flex: 0 0 85%;
+  }
+}
+
+@media (min-width: 900px) {
+  .carousel {
+    flex: 0 0 75%;
+  }
+
+  
+  .headline-4 {
+    line-height: 15px;
+    padding-right: 10px;
+    font-size: 2em;
+  }
+  .carousel-br {
+    display: block;
+  }
+  
+
+}
+@media (max-width: 600px) {
+  .banner {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .carousel {
+      margin-top: 10px;
+  }
+
+}
+
+
