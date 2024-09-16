@@ -82,29 +82,8 @@ const updateActiveNavLink = function () {
   while(--index && window.scrollY + 50 < sections[index].offsetTop) {}
 
   navLinks.forEach((link) => link.classList.remove('active'));
-
-  if (!navLinks[index].classList.contains('active')) {
-    navLinks[index].classList.add('active');
-  }
-};
-
-const debounce = (func, wait = 20, immediate = true) => {
-  let timeout;
-  return function() {
-    const context = this, args = arguments;
-    const later = function() {
-      timeout = null;
-      if (!immediate) func.apply(context, args);
-    };
-    const callNow = immediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) func.apply(context, args);
-  };
-};
-
-window.addEventListener("scroll", debounce(hideHeader));
-
+  navLinks[index].classList.add('active');
+}
 
 
 /**

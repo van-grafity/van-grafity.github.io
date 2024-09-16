@@ -274,7 +274,7 @@ body.loaded {
 }
 
 body.nav-active {
-  overflow: auto;
+  overflow: hidden;
 }
 
 /* Custom scrollbar for modern browsers */
