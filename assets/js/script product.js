@@ -1,7 +1,7 @@
   document.addEventListener("DOMContentLoaded", () => {
     const categories = document.getElementById("category-list");
     const categoryNameDisplay = document.getElementById("category-name");
-    const sectionList = document.querySelector(".sectionproduct-list");
+    const sectionList = document.querySelector(".categoryline-list");
     const productList = document.querySelector(".product-list");
     const searchInput = document.getElementById("search-input");
 

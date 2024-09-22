@@ -280,7 +280,7 @@
 
       <!-- RESPONSIVE GUIDE -->
 
-      <div class="responsive-text">
+      <div class="responsive-text" hidden>
         <p class="width-display-0">Current min-width: 0px</p>
         <p class="width-display-575">Current min-width: 575px</p>
         <p class="width-display-768">Current min-width: 768px</p>
@@ -616,32 +616,29 @@
       <!-- PRODUCTZ -->
       <section class="section-product" style="background-color: var(--soft-blue);" id="product">
         <div class="container col-md-12 text-center heading-section ftco-animate">
-          <p class="section-subtitle subheadline-1 text-color-navy">WHAT WE HAVE</p>
-          <h2 class="headline-1 section-title text-color-black">Our Product</h2>
-          <div id="selected-category" class="product-1 product-menampilkan">
-            Menampilkan: <span id="category-name" class="produk-menampilkan-category">All</span>
-          </div>
-          <div id="search-containerproduct">
-            <input type="text" id="search-input" class="product-1" placeholder="Cari produk...">
-            <button id="search-button" class="product-1">Cari</button>
-          </div>
-          <div class="containerproduct">
-            <div id="category-list" class="product-1 product-3">
-              <!-- Kategori akan diisi oleh JavaScript -->
+            <p class="section-subtitle subheadline-1 text-color-navy">WHAT WE HAVE</p>
+            <h2 class="headline-1 section-title text-color-black">Our Product</h2>
+            <div id="selected-category" class="product-1 product-menampilkan">
+                Menampilkan: <span id="category-name" class="produk-menampilkan-category">All</span>
             </div>
-            <div id="sectionproduct-content" class="product-1 product-3">
-              <div class="sectionproduct-list">
-
-              </div>
-              <div class="product-2 product-list">
-                <!-- Produk akan diisi oleh JavaScript -->
-              </div>
+            <div id="search-containerproduct">
+                <input type="text" id="search-input" class="product-1" placeholder="Cari produk...">
+                <button id="search-button" class="product-1">Cari</button>
             </div>
-          </div>
-          
+            <div class="containerproduct">
+                <div id="category-list" class="product-1 product-3">
+                </div>
+                <div id="sectionproduct-content" class="product-1 product-3">
+                    <select id="categoryline-dropdown" class="dropdown-categoryline">
+                    </select>
+                    <div class="categoryline-list">
+                    </div>
+                    <div class="product-2 product-list">
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
-
+    </section>
 
 
 

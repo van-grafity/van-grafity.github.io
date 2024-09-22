@@ -154,7 +154,7 @@
   width: 80%;
 }
 
-.sectionproduct-list {
+.categoryline-list {
   display: flex;
   background-color: var(--soft-blue);
   overflow-x: auto;
@@ -167,13 +167,13 @@
   
 }
 /* Default: Hide dropdown */
-.sectionproduct-list select {
+.categoryline-list select {
   display: none;
 }
 
 /* Tampilkan dropdown hanya pada lebar layar 0-1000px */
 @media (max-width: 1000px) {
-  .sectionproduct-list select {
+  .categoryline-list select {
     display: block;
   }
 }
@@ -238,6 +238,50 @@
   text-align: center;
   line-height: normal;
 color: #fff !important;
+}
+
+/* Default style for larger screens (desktop) */
+#categoryline-dropdown {
+  display: none;
+}
+
+/* Untuk tablet dan ponsel (lebar layar di bawah) */
+@media (max-width: 1000px) {
+  /* #category-list {
+    display: none;
+  } */
+
+  #category-dropdown {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .categoryline-list {
+    display: none;
+  }
+
+  #categoryline-dropdown {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  #categoryline-dropdown {
+    background-color: #ffffff; /* Warna putih */
+    color: #000000; /* Warna teks hitam agar kontras */
+    border: 1px solid #ccc; /* Border abu-abu agar terlihat */
+    border-radius: 5px; /* Memberikan border radius agar terlihat lebih lembut */
+    padding: 5px; /* Memberikan jarak dalam elemen */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sedikit bayangan agar terlihat */
+}
+  
+  /* categoryline-list */
+  .categoryline-list {
+    display: none;
+  }
 }
 
 /* Responsive styles */

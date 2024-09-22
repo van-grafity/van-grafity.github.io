@@ -15,8 +15,8 @@ function populateSubcategoryDropdown(categoryNumber) {
         dropdown.appendChild(option);
     });
 
-    // Tambahkan dropdown ke dalam .sectionproduct-list
-    const sectionProductList = document.querySelector('.sectionproduct-list');
+    // Tambahkan dropdown ke dalam .categoryline-list
+    const sectionProductList = document.querySelector('.categoryline-list');
     sectionProductList.innerHTML = ''; // Kosongkan sebelumnya
     sectionProductList.appendChild(dropdown);
 

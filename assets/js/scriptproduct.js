@@ -1,55 +1,109 @@
 document.addEventListener("DOMContentLoaded", () => {
     const categories = document.getElementById("category-list");
     const categoryNameDisplay = document.getElementById("category-name");
-    const sectionList = document.querySelector(".sectionproduct-list");
+    const categorylineList = document.querySelector(".categoryline-list");
     const productList = document.querySelector(".product-list");
     const searchInput = document.getElementById("search-input");
+    const categorylineDropdown = document.getElementById("categoryline-dropdown");
 
     let activeCategory = 1; // Kategori aktif awal
     let activeSection = 1; // Bagian aktif awal
 
     function displayCategoryContent(categoryNumber) {
-      document.querySelectorAll(".category").forEach((category) => {
-        category.classList.remove("active");
-      });
+        document.querySelectorAll(".category").forEach((category) => {
+            category.classList.remove("active");
+        });
 
-      const activeCategoryElement = document.querySelector(
-        `.category[data-category="${categoryNumber}"]`
-      );
-      activeCategoryElement.classList.add("active");
+        const activeCategoryElement = document.querySelector(
+            `.category[data-category="${categoryNumber}"]`
+        );
+        activeCategoryElement.classList.add("active");
 
-      categoryNameDisplay.innerText = getCategoryName(categoryNumber);
+        categoryNameDisplay.innerText = getCategoryName(categoryNumber);
 
-      sectionList.innerHTML = "";
-      productList.innerHTML = "";
+        categorylineList.innerHTML = "";
+        productList.innerHTML = "";
+        categorylineDropdown.innerHTML = "";
 
-      if (categoryNumber === 1) {
-        activeSection = 1;
-        displayProductContent(activeCategory, activeSection);
-        return;
-      }
-
-      const sections = getSectionsByCategory(categoryNumber);
-      const products = getProductsByCategory(categoryNumber);
-
-      sections.forEach((section, index) => {
-        if (section) {
-          const sectionDiv = document.createElement("div");
-          sectionDiv.classList.add("sectionproduct");
-          sectionDiv.dataset.category = categoryNumber;
-          sectionDiv.dataset.section = index + 1;
-          sectionDiv.innerHTML = `<h3>${section}</h3>`;
-          sectionDiv.addEventListener("click", (event) => {
-            event.stopPropagation();
-            setActiveSection(index + 1);
-          });
-          sectionList.appendChild(sectionDiv);
+        if (categoryNumber === 1) {
+            activeSection = 1;
+            displayProductContent(activeCategory, activeSection);
+            return;
         }
-      });
 
-      productList.scrollTop = 0;
+        const sections = getSectionsByCategory(categoryNumber);
+        const products = getProductsByCategory(categoryNumber);
 
-      setActiveSection(1);
+        // Tambahkan elemen ke dropdown dan categorylineList
+        sections.forEach((section, index) => {
+            if (section) {
+                // Untuk categorylineList
+                const sectionDiv = document.createElement("div");
+                sectionDiv.classList.add("sectionproduct");
+                sectionDiv.dataset.category = categoryNumber;
+                sectionDiv.dataset.section = index + 1;
+                sectionDiv.innerHTML = `<h3>${section}</h3>`;
+                sectionDiv.addEventListener("click", (event) => {
+                    event.stopPropagation();
+                    setActiveSection(index + 1);
+                });
+                categorylineList.appendChild(sectionDiv);
+
+                // Untuk dropdown
+                const option = document.createElement("option");
+                option.value = index + 1;
+                option.textContent = section;
+                categorylineDropdown.appendChild(option);
+            }
+        });
+
+        productList.scrollTop = 0;
+
+        setActiveSection(1);
+    }
+
+    function setActiveSection(sectionNumber) {
+        activeSection = sectionNumber;
+        displayProductContent(activeCategory, activeSection);
+
+        // Atur dropdown ke nilai yang sesuai
+        categorylineDropdown.value = sectionNumber;
+    }
+
+    // Event listener untuk perubahan dropdown
+    categorylineDropdown.addEventListener("change", () => {
+        const selectedSection = parseInt(categorylineDropdown.value);
+        if (!isNaN(selectedSection)) {
+            setActiveSection(selectedSection);
+        }
+    });
+
+    function displayProductContent(categoryNumber, sectionNumber) {
+        const products = getProductsByCategoryAndSection(categoryNumber, sectionNumber);
+        productList.innerHTML = "";
+
+        products.forEach((product) => {
+            const productDiv = document.createElement("div");
+            productDiv.classList.add("product");
+            productDiv.dataset.category = categoryNumber;
+            productDiv.dataset.section = sectionNumber;
+
+            const productImage = document.createElement("div");
+            productImage.classList.add("product-image");
+            const img = document.createElement("img");
+            img.src = product.imageSrc;
+            img.alt = product.name;
+            productImage.appendChild(img);
+
+            const productName = document.createElement("p");
+            productName.classList.add("product-name");
+            productName.textContent = product.name;
+
+            productDiv.appendChild(productImage);
+            productDiv.appendChild(productName);
+
+            productList.appendChild(productDiv);
+        });
     }
 
     function getCategoryName(categoryNumber) {
